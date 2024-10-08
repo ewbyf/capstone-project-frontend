@@ -9,7 +9,8 @@ const config: Config = {
 				foreground: 'var(--foreground)'
 			},
 			fontFamily: {
-				roboto: ['Roboto']
+				roboto: ['Roboto'],
+				inter: ['Inter']
 			}
 		},
 		patterns: {
