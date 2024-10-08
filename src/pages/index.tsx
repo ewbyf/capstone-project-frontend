@@ -2,6 +2,7 @@ import AccordionSteps from '@/components/AccordionSteps';
 import GetStartedButton from '@/components/GetStartedButton';
 import GithubButton from '@/components/GithubButton';
 import Navbar from '@/components/Navbar';
+import { BenefitsGrid } from '@/components/benefits-grid/BenefitsGrid';
 
 export default function Home() {
 	return (
@@ -30,7 +31,7 @@ export default function Home() {
                 <section className='flex flex-col w-full items-center px-[20%] py-24 gap-6'>
                     <p className='font-inter font-medium text-xl text-[#A7AEBA]'>Benefits & Features</p>
                     <p className='font-inter font-bold text-3xl text-[#3C3C3C]'>Here is how Codeban can help you</p>
-                    <AccordionSteps></AccordionSteps>
+                    <BenefitsGrid></BenefitsGrid>
                 </section>
             </div>
         </div>
