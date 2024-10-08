@@ -5,8 +5,8 @@ import {
   FiClipboard,
   FiCoffee,
   FiDollarSign,
-  FiFeather,
-  FiInbox,
+  FiGithub,
+  FiBookmark,
   FiMove,
   FiRepeat,
   FiSmile,
@@ -23,55 +23,55 @@ export const HighlighBlocks = () => {
         Icon={FiDollarSign}
         iconClassName="text-green-500"
         title="Save on planning"
-        subtitle="Lorem ipsum dolor sit amet consectetur adipisicing elit."
+        subtitle="Reduce overhead time dedicated to setting up and specifying tasks during meetings."
       />
       <HighlightBlock
         Icon={FiArrowUpRight}
         iconClassName="text-pink-500"
-        title="Grow your margins"
-        subtitle="Lorem ipsum dolor sit amet consectetur adipisicing elit."
+        title="Speed up testing"
+        subtitle="Highlight features or bugs with comments and directly convert them to testable tasks."
       />
       <HighlightBlock
         Icon={FiSmile}
         iconClassName="text-blue-500"
         title="Increase productivity"
-        subtitle="Lorem ipsum dolor sit amet consectetur adipisicing elit."
+        subtitle="Let developers spend more time on writing code instead of specifying tasks."
       />
       <HighlightBlock
         Icon={FiCoffee}
         iconClassName="text-orange-500"
         title="No more late nights"
-        subtitle="Lorem ipsum dolor sit amet consectetur adipisicing elit."
+        subtitle="Cut time spent on creating tasks to save up to 10 hours per week."
       />
       <HighlightBlock
-        Icon={FiFeather}
+        Icon={FiGithub}
         iconClassName="text-zinc-500"
-        title="Take better notes"
-        subtitle="Lorem ipsum dolor sit amet consectetur adipisicing elit."
+        title="Use anywhere"
+        subtitle="GitHub integration means all tasks are available for any environment."
       />
       <HighlightBlock
-        Icon={FiInbox}
+        Icon={FiBookmark}
         iconClassName="text-purple-500"
-        title="Reach inbox zero"
-        subtitle="Lorem ipsum dolor sit amet consectetur adipisicing elit."
+        title="Monitor what's important"
+        subtitle="Stay up-to-date on task changes and progress to be in sync with the team."
       />
       <HighlightBlock
         Icon={FiMove}
         iconClassName="text-fuchsia-500"
         title="Remain flexible"
-        subtitle="Lorem ipsum dolor sit amet consectetur adipisicing elit."
+        subtitle="Make changes to existing tasks within the code itself and keep the team updated."
       />
       <HighlightBlock
         Icon={FiClipboard}
         iconClassName="text-red-500"
         title="Stay on track"
-        subtitle="Lorem ipsum dolor sit amet consectetur adipisicing elit."
+        subtitle="Keep the team organized with easy-to-update tasks shared with all group members."
       />
       <HighlightBlock
         Icon={FiRepeat}
         iconClassName="text-yellow-500"
         title="Repeat what works"
-        subtitle="Lorem ipsum dolor sit amet consectetur adipisicing elit."
+        subtitle="Easily replicate tasks to streamline workflow with recognizable language."
       />
     </>
   );
