@@ -101,17 +101,17 @@ export default AccordionSteps;
 const solutions = [
   {
     id: 1,
-    title: "1. Write your comments",
+    title: "1. Write comments",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos laudantium in iusto iure aliquam commodi possimus eaque sit recusandae incidunt?",
+      "Add comments to your code specifying what needs to be done. Add as much or as little detail as you want!",
     imgSrc:
       "https://media1.giphy.com/media/VkMV9TldsPd28/giphy.gif?cid=ecf05e478ipd21u861g034loyqpc66eseytcl7lzjbk1wqrh&ep=v1_gifs_search&rid=giphy.gif&ct=g",
   },
   {
     id: 2,
-    title: "2. Commit and push your code",
+    title: "2. Commit and push code",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos laudantium in iusto iure aliquam commodi possimus eaque sit recusandae incidunt?",
+      "Save your changes to the project's GitHub repostiory. 50+ languages are supported, so no need to worry about formatting!",
     imgSrc:
       "https://media1.giphy.com/media/VkMV9TldsPd28/giphy.gif?cid=ecf05e478ipd21u861g034loyqpc66eseytcl7lzjbk1wqrh&ep=v1_gifs_search&rid=giphy.gif&ct=g",
   },
@@ -119,7 +119,7 @@ const solutions = [
     id: 3,
     title: "3. Check the kanban board",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos laudantium in iusto iure aliquam commodi possimus eaque sit recusandae incidunt?",
+      "Your comments will appear as a new task with all the details you put in the code. No more importing or retyping information!",
     imgSrc:
       "https://media1.giphy.com/media/VkMV9TldsPd28/giphy.gif?cid=ecf05e478ipd21u861g034loyqpc66eseytcl7lzjbk1wqrh&ep=v1_gifs_search&rid=giphy.gif&ct=g",
   },
