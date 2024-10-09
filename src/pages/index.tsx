@@ -2,6 +2,7 @@ import AccordionSteps from '@/components/AccordionSteps';
 import GetStartedButton from '@/components/GetStartedButton';
 import GithubButton from '@/components/GithubButton';
 import Navbar from '@/components/Navbar';
+import { Testimonials } from '@/components/Testimonials';
 import { BenefitsGrid } from '@/components/benefits-grid/BenefitsGrid';
 
 export default function Home() {
@@ -23,15 +24,20 @@ export default function Home() {
                     </div>
                     <div>{/* img */}</div>
                 </section>
-                <section className='flex flex-col w-full items-center bg-[#EEF2FF] px-[20%] py-24 gap-6'>
+                <section className='flex flex-col w-full items-center bg-[#EEF2FF] px-[20%] py-24 gap-6' id="how">
                     <p className='font-inter font-medium text-xl text-[#A7AEBA]'>How it works</p>
                     <p className='font-inter font-bold text-3xl text-[#3C3C3C]'>Turn comments into cards with just 3 steps</p>
                     <AccordionSteps></AccordionSteps>
                 </section>
-                <section className='flex flex-col w-full items-center px-[20%] py-24 gap-6'>
+                <section className='flex flex-col w-full items-center px-[20%] py-24 gap-6' id="benefits">
                     <p className='font-inter font-medium text-xl text-[#A7AEBA]'>Benefits & Features</p>
                     <p className='font-inter font-bold text-3xl text-[#3C3C3C]'>Here is how Codeban can help you</p>
                     <BenefitsGrid></BenefitsGrid>
+                </section>
+                <section className='flex flex-col w-full items-center bg-[#EEF2FF] py-24 gap-6' id="how">
+                    <p className='font-inter font-medium text-xl text-[#A7AEBA]'>Testimonials</p>
+                    <p className='font-inter font-bold text-3xl text-[#3C3C3C]'>See why users love Codeban</p>
+                    <Testimonials></Testimonials>
                 </section>
             </div>
         </div>
