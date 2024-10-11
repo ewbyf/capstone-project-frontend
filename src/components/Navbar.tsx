@@ -1,3 +1,5 @@
+import GetStartedButton2 from "./GetStartedButton2";
+
 const Navbar = () => {
     return (
         <nav className="bg-white w-full flex items-center fixed top-0 shadow px-12 py-2 z-50 gap-12">
@@ -10,6 +12,7 @@ const Navbar = () => {
             <a href="#benefits" className="font-inter font-[500] hover:text-[#4F46E5]">Benefits</a>
             <a href="#testimonials" className="font-inter font-[500] hover:text-[#4F46E5]">Testimonials</a>
             <a href="#faq" className="font-inter font-[500] hover:text-[#4F46E5]">FAQ</a>
+            <GetStartedButton2></GetStartedButton2>
         </nav>
     );
 }
