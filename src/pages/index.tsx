@@ -1,4 +1,6 @@
 import AccordionSteps from '@/components/AccordionSteps';
+import FAQ from '@/components/FAQ';
+import { Footer } from '@/components/Footer';
 import GetStartedButton from '@/components/GetStartedButton';
 import GithubButton from '@/components/GithubButton';
 import Navbar from '@/components/Navbar';
@@ -30,14 +32,40 @@ export default function Home() {
                     <AccordionSteps></AccordionSteps>
                 </section>
                 <section className='flex flex-col w-full items-center px-[20%] py-24 gap-6' id="benefits">
-                    <p className='font-inter font-medium text-xl text-[#A7AEBA]'>Benefits & Features</p>
+                    <p className='font-inter font-medium text-xl text-[#A7AEBA]'>Benefits</p>
                     <p className='font-inter font-bold text-3xl text-[#3C3C3C]'>Here is how Codeban can help you</p>
                     <BenefitsGrid></BenefitsGrid>
                 </section>
-                <section className='flex flex-col w-full items-center bg-[#EEF2FF] py-24 gap-6' id="how">
+                <section className='flex flex-col w-full items-center bg-[#EEF2FF] py-24 gap-6' id="testimonials">
                     <p className='font-inter font-medium text-xl text-[#A7AEBA]'>Testimonials</p>
                     <p className='font-inter font-bold text-3xl text-[#3C3C3C]'>See why users love Codeban</p>
                     <Testimonials></Testimonials>
+                </section>
+                <section className='flex flex-col w-full items-center px-[20%] py-24 gap-6' id="faq">
+                    <p className='font-inter font-bold text-3xl text-[#3C3C3C]'>Frequently Asked Questions</p>
+                    <FAQ></FAQ>
+                </section>
+                <section className='flex w-full justify-center bg-[#111827] py-24 gap-6' id="testimonials">
+                <Footer></Footer>
+                    {/* <div className='flex flex-col'>
+                        <div className="flex items-center gap-2">
+                            <img src="logo.svg" alt="" height={60} width={60}/>
+                            <p className="text-2xl font-bold text-[#3C3C3C]">Codeban</p>
+                        </div>
+                        <p>© 2024 Codeban. All rights reserved.</p>
+                    </div>
+                    <div className='flex flex-col'>
+                        <div className="flex items-center gap-2">
+                            <img src="logo.svg" alt="" height={60} width={60}/>
+                            <p className="text-2xl font-bold text-[#3C3C3C]">Codeban</p>
+                        </div>
+                    </div>
+                    <div className='flex flex-col'>
+                        <div className="flex items-center gap-2">
+                            <img src="logo.svg" alt="" height={60} width={60}/>
+                            <p className="text-2xl font-bold text-[#3C3C3C]">Codeban</p>
+                        </div>
+                    </div> */}
                 </section>
             </div>
         </div>

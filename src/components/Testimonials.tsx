@@ -171,7 +171,7 @@ const TestimonialCard = ({
       />
       <img
         src={testimonial.imgSrc}
-        alt={`Testimonial image for ${testimonial.by}`}
+        alt={`Testimonial image`}
         className="mb-4 h-14 w-12 bg-neutral-600 object-cover object-top"
         style={{
           boxShadow: "3px 3px 0px white",

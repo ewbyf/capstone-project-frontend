@@ -7,7 +7,7 @@ const Navbar = () => {
             </div>
             <a href="#" className="font-inter font-[500] hover:text-[#4F46E5]">Try it</a>
             <a href="#how" className="font-inter font-[500] hover:text-[#4F46E5]">How it works</a>
-            <a href="#benefits" className="font-inter font-[500] hover:text-[#4F46E5]">Benefits & Features</a>
+            <a href="#benefits" className="font-inter font-[500] hover:text-[#4F46E5]">Benefits</a>
             <a href="#testimonials" className="font-inter font-[500] hover:text-[#4F46E5]">Testimonials</a>
             <a href="#faq" className="font-inter font-[500] hover:text-[#4F46E5]">FAQ</a>
         </nav>
