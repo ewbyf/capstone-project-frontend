@@ -1,16 +1,15 @@
 import { FaArrowRightLong } from "react-icons/fa6";
 import { FaArrowRight } from "react-icons/fa6";
 const GetStartedButton = () => {
-	const signin = () => {};
-
 	return (
-		<div
-			onClick={signin}
-			className='justify-center bg-gradient-to-r from-[#ff00b2] to-[#60F] text-white font-bold py-3 px-12 rounded-3xl hover:cursor-pointer hover:bg-gray-700 flex items-center gap-2 hover:scale-105 transition-all'
+		<a
+			href="https://github.com/apps/todo-kanban-board/installations/new"
+            target="_blank"
+			className='justify-center bg-gradient-to-r from-[#ff00b2] to-[#60F] text-white font-bold py-3 px-12 rounded-3xl hover:cursor-pointer hover:bg-gray-700 flex items-center gap-2'
 		>
-			<p>Get Started</p>
+			<p>Get Codeban</p>
             <FaArrowRight />
-		</div>
+		</a>
 	);
 };
 

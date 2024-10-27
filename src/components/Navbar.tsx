@@ -1,4 +1,5 @@
 import GetStartedButton2 from "./GetStartedButton2";
+import LoginButton from "./LoginButton";
 
 const Navbar = () => {
     return (
@@ -12,7 +13,10 @@ const Navbar = () => {
             <a href="#benefits" className="font-inter font-[500] hover:text-[#4F46E5]">Benefits</a>
             <a href="#testimonials" className="font-inter font-[500] hover:text-[#4F46E5]">Testimonials</a>
             <a href="#faq" className="font-inter font-[500] hover:text-[#4F46E5]">FAQ</a>
-            <GetStartedButton2></GetStartedButton2>
+            <div className="flex ml-auto gap-4">
+                <LoginButton></LoginButton>
+                <GetStartedButton2></GetStartedButton2>
+            </div>
         </nav>
     );
 }
