@@ -5,7 +5,7 @@ import { MaxWidthWrapper } from '../utils/MaxWidthWrapper';
 export const Footer = () => {
 	return (
 		<footer className='relative overflow-hidden py-12'>
-			<MaxWidthWrapper className='relative z-20 grid grid-cols-12 gap-x-16 gap-y-6'>
+			<MaxWidthWrapper className='relative z-20 grid grid-cols-12 gap-x-8 gap-y-6'>
 				<LogoColumn />
 				<GenericColumn
 					title='Quick Links'

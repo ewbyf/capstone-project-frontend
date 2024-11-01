@@ -1,6 +1,4 @@
 const LoginButton = () => {
-	const signin = () => {};
-
 	return (
 		<a
 			href='https://github.com/login/oauth/authorize?client_id=Iv23lir1QxMpl4yKgqRS'

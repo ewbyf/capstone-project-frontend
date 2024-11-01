@@ -1,13 +1,15 @@
 import { Dispatch, SetStateAction, useState } from "react";
 import { FiArrowRight } from "react-icons/fi";
 import { AnimatePresence, motion } from "framer-motion";
+import { useMediaQuery } from 'usehooks-ts';
+
 
 const AccordionSteps = () => {
   const [open, setOpen] = useState(solutions[0].id);
   const imgSrc = solutions.find((s) => s.id === open)?.imgSrc;
   return (
     <section className="px-8 py-12">
-      <div className="w-full max-w-5xl mx-auto grid gap-8 grid-cols-1 lg:grid-cols-[1fr_350px]">
+      <div className="w-full max-w-5xl mx-auto grid gap-8 grid-cols-1 xl:grid-cols-[1fr_350px] flex-wrap">
         <div>
           <div className="flex flex-col gap-4">
             {solutions.map((q) => {
@@ -23,7 +25,7 @@ const AccordionSteps = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             key={imgSrc}
-            className="bg-slate-300 rounded-2xl aspect-[4/3] lg:aspect-auto"
+            className="bg-slate-300 rounded-2xl aspect-[4/3] xl:aspect-auto"
             style={{
               backgroundImage: `url(${imgSrc})`,
               backgroundPosition: "center",
@@ -50,6 +52,7 @@ const Solution = ({
   setOpen: Dispatch<SetStateAction<number>>;
 }) => {
   const isOpen = index === open;
+  const mobile = useMediaQuery('(max-width: 607px)');
 
   return (
     <div
@@ -59,7 +62,7 @@ const Solution = ({
       <motion.div
         initial={false}
         animate={{
-          height: isOpen ? "175px" : "72px",
+          height: isOpen ? (mobile ? "290px" : "175px") : (mobile ? "100px" : "72px"),
         }}
         className="p-6 rounded-[7px] bg-white flex flex-col justify-between relative z-20"
       >
