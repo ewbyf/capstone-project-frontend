@@ -171,7 +171,7 @@ const TestimonialCard = ({
       />
       <img
         src={testimonial.imgSrc}
-        alt={`Testimonial image`}
+        alt={`:)`}
         className="mb-4 h-14 w-12 bg-neutral-600 object-cover object-top"
         style={{
           boxShadow: "3px 3px 0px white",
@@ -206,82 +206,82 @@ const TESTIMONIAL_DATA: TestimonialType[] = [
   {
     tempId: 0,
     testimonial:
-      "My favorite solution in the market. We work 5x faster with COMPANY.",
-    by: "Alex, CEO at COMPANY",
-    imgSrc: "/imgs/head-shots/1.jpg",
+      "Helped increase my team's efficiency by over 50 percent!",
+    by: "Product Owner",
+    imgSrc: "smile_img.jpg",
   },
   {
     tempId: 1,
     testimonial:
-      "I'm confident my data is safe with COMPANY. I can't say that about other providers.",
-    by: "Dan, CEO at COMPANY",
-    imgSrc: "/imgs/head-shots/2.jpg",
+      "Solved misunderstandings between developers and the planning team!",
+    by: "CEO",
+    imgSrc: "smile_img.jpg",
   },
   {
     tempId: 2,
     testimonial:
-      "I know it's cliche, but we were lost before we found COMPANY. Can't thank you guys enough!",
-    by: "Stephanie, CEO at COMPANY",
-    imgSrc: "/imgs/head-shots/3.jpg",
+      "Saved me so much time in planning and made sure developers remained on track!",
+    by: "Scrum Master",
+    imgSrc: "smile_img.jpg",
   },
   {
     tempId: 3,
     testimonial:
-      "COMPANY's products make planning for the future seamless. Can't recommend them enough!",
-    by: "Marie, CEO at COMPANY",
-    imgSrc: "/imgs/head-shots/4.jpg",
+      "Finally no more 3 hour meetings to keep everyone on the same page!",
+    by: "Developer",
+    imgSrc: "smile_img.jpg",
   },
   {
     tempId: 4,
-    testimonial: "If I could give 11 stars, I'd give 12.",
-    by: "Andre, CEO at COMPANY",
-    imgSrc: "/imgs/head-shots/5.jpg",
+    testimonial: "Makes it so easy to see when functionality is ready for testing!",
+    by: "Tester",
+    imgSrc: "smile_img.jpg",
   },
   {
     tempId: 5,
     testimonial:
-      "SO SO SO HAPPY WE FOUND YOU GUYS!!!! I'd bet you've saved me 100 hours so far.",
-    by: "Jeremy, CEO at COMPANY",
-    imgSrc: "/imgs/head-shots/6.jpg",
+      "I have never seen better results from the project team!",
+    by: "CEO",
+    imgSrc: "smile_img.jpg",
   },
   {
     tempId: 6,
     testimonial:
-      "Took some convincing, but now that we're on COMPANY, we're never going back.",
-    by: "Pam, CEO at COMPANY",
-    imgSrc: "/imgs/head-shots/7.jpg",
+      "We received our software almost 2 months early after the development team started using this product!",
+    by: "Customer",
+    imgSrc: "smile_img.jpg",
   },
   {
     tempId: 7,
     testimonial:
-      "I would be lost without COMPANY's in depth analytics. The ROI is EASILY 100X for us.",
-    by: "Daniel, CEO at COMPANY",
-    imgSrc: "/imgs/head-shots/8.jpg",
+      "A great way to communicate with peers and collaborate when new features are in progress!",
+    by: "Developer",
+    imgSrc: "smile_img.jpg",
   },
   {
     tempId: 8,
-    testimonial: "It's just the best. Period.",
-    by: "Fernando, CEO at COMPANY",
-    imgSrc: "/imgs/head-shots/9.jpg",
+    testimonial: "Employee retention has gone up as a result of how much the team enjoys this product's amazing features!",
+    by: "HR Manager",
+    imgSrc: "smile_img.jpg",
   },
   {
     tempId: 9,
-    testimonial: "I switched 5 years ago and never looked back.",
-    by: "Andy, CEO at COMPANY",
-    imgSrc: "/imgs/head-shots/10.jpg",
+    testimonial: "Game changing for completing software with a tight deadline!",
+    by: "Product Owner",
+    imgSrc: "smile_img.jpg",
   },
   {
     tempId: 10,
     testimonial:
-      "I've been searching for a solution like COMPANY for YEARS. So glad I finally found one!",
-    by: "Pete, CEO at COMPANY",
-    imgSrc: "/imgs/head-shots/11.jpg",
+      "Easy to navigate and assign tasks to the correct team members!",
+    by: "Scrum Master",
+    imgSrc: "smile_img.jpg",
   },
   {
     tempId: 11,
     testimonial:
-      "It's so simple and intuitive, we got the team up to speed in 10 minutes.",
-    by: "Marina, CEO at COMPANY",
-    imgSrc: "/imgs/head-shots/12.jpg",
+      "Easy for everyone to use, even new interns understand the process after only 10 minutes!",
+    by: "HR Manager",
+    imgSrc: "smile_img.jpg",
   },
 ];
