@@ -7,25 +7,23 @@ const FAQ = () => {
   return (
     <div className="px-4 py-6">
       <div className="mx-auto max-w-3xl">
-        <Question title="Why is the sky blue?" defaultOpen>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque
-            laboriosam neque reprehenderit saepe eius dolorum vel consequuntur
-            perspiciatis ad vero.
+      <Question title="What makes Codeban better than other kanban boards?" defaultOpen>
+            The unique feature of being able to create and edit tasks directly
+            from in-code comments means that Codeban offers higher efficiency than competitors. 
+            Other kanban board systems require overhead time dedicated to managing tasks, 
+            which Codeban effectively lessens or even eliminates.
         </Question>
-        <Question title="Why did the chicken cross the road?">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque
-            laboriosam neque reprehenderit saepe eius dolorum vel consequuntur
-            perspiciatis ad vero.
+        <Question title="Which programming languages are supported?">
+            Codeban supports a wide variety of languages and comment styles! 
+            As of now the following comment styles (and their associated languages) are implemented:
+            //comment, #comment, /*comment*/, %comment, --comment, 'comment, ;comment
         </Question>
-        <Question title="How many licks does it take to get to the center of a tootsie pop?">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque
-            laboriosam neque reprehenderit saepe eius dolorum vel consequuntur
-            perspiciatis ad vero.
+        <Question title="What if I want to make a manual change?">
+            No problem! Codeban supports task editing both in comments and through the board. 
+            Simply navigage to the task and make any changes you need, and the updates will also appear in the respective comment. 
         </Question>
-        <Question title="Where's Waldo?">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque
-            laboriosam neque reprehenderit saepe eius dolorum vel consequuntur
-            perspiciatis ad vero.
+        <Question title="How much does Codeban cost?">
+            Codeban is free, all you need is a GitHub account to be able to log in and start using the application!
         </Question>
       </div>
     </div>
