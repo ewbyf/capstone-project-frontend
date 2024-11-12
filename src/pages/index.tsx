@@ -16,7 +16,7 @@ export default function Home() {
 		<div className='h-full'>
 			{matches && <MobileNavbar />}
 			{!matches && <Navbar></Navbar>}
-			<div className='h-full'>
+			<div>
 				<div className='pattern-cross pattern-gray-500 pattern-bg-gray-300 pattern-size-8 pattern-opacity-10 h-full absolute w-full'></div>
 				<div className='flex flex-col items-center w-full h-full z-[99]'>
 					{mobile && (

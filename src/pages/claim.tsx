@@ -10,11 +10,11 @@ const Claim = () => {
         if (arr.length == 2) {
             localStorage.setItem('token', arr[1])
         }
-        router.push('/board')
+        router.push('/projects')
     }, [])
   
     return (
-        <div className='h-full w-full bg-[#EEF2FF] flex flex-col justify-center items-center gap-4'>
+        <div className='h-full w-full bg-background flex flex-col justify-center items-center gap-4'>
             <Loader></Loader>
         </div>
     );
