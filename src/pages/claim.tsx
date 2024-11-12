@@ -1,18 +1,16 @@
 import Loader from '@/components/Loader';
-import { useSearchParams } from 'next/navigation'
 import { useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/router';
 
 const Claim = () => {
-    const searchParams = useSearchParams();
-    const { push } = useRouter();
+    const router = useRouter();
 
     useEffect(() => {
-        const queryParamValue = searchParams.get('token');
-        if (queryParamValue) {
-            localStorage.setItem('token', queryParamValue)
+        const arr = router.asPath.split('=')
+        if (arr.length == 2) {
+            localStorage.setItem('token', arr[1])
         }
-        push('/board')
+        router.push('/board')
     }, [])
   
     return (
