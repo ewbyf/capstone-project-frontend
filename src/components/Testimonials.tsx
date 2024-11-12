@@ -170,7 +170,7 @@ const TestimonialCard = ({
         }}
       />
       <img
-        src={testimonial.imgSrc}
+        src={"/smile_img.jpg"}
         alt={`:)`}
         className="mb-4 h-14 w-12 bg-neutral-600 object-cover object-top"
         style={{
