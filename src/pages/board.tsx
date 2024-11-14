@@ -37,17 +37,18 @@ const Board = () => {
 					<LogoutButton />
 				</div>
 			</div>
-			{/* py-6 px-14 */}
-			<div className='w-full my-8'>
-				<p className='text-2xl font-bold'>{router.query.name}</p>
-				<p>{router.query.url}</p>
-			</div>
-			<div className='flex gap-3 flex-wrap'>
-				<Column title='Backlog' column='backlog' headingColor='text-neutral-500' cards={cards} setCards={setCards} />
-				<Column title='TODO' column='todo' headingColor='text-yellow-200' cards={cards} setCards={setCards} />
-				<Column title='In progress' column='doing' headingColor='text-blue-200' cards={cards} setCards={setCards} />
-				<Column title='Complete' column='done' headingColor='text-emerald-200' cards={cards} setCards={setCards} />
-				<BurnBarrel setCards={setCards} />
+			<div className='py-6 px-14 w-full h-full gap-8 flex flex-col'>
+				<div className='w-full'>
+					<p className='text-2xl font-bold'>{router.query.name}</p>
+					<p>{router.query.url}</p>
+				</div>
+				<div className='flex gap-3 flex-wrap'>
+					<Column title='Backlog' column='backlog' headingColor='text-neutral-500' cards={cards} setCards={setCards} />
+					<Column title='TODO' column='todo' headingColor='text-yellow-200' cards={cards} setCards={setCards} />
+					<Column title='In progress' column='doing' headingColor='text-blue-200' cards={cards} setCards={setCards} />
+					<Column title='Complete' column='done' headingColor='text-emerald-200' cards={cards} setCards={setCards} />
+					<BurnBarrel setCards={setCards} />
+				</div>
 			</div>
 		</div>
 	);
