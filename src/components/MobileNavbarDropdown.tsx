@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { IoClose, IoMenu } from 'react-icons/io5';
-import GetStartedButton2 from './GetStartedButton2';
-import LoginButton from './LoginButton';
+import GetStartedButton2 from './buttons/GetStartedButton2';
+import LoginButton from './buttons/LoginButton';
 
 const MobileNavbarDropdown = () => {
 	const [open, setOpen] = useState(false);

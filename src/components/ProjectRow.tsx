@@ -6,7 +6,7 @@ const ProjectRow = ({ proj }: { proj: Project }) => {
     const router = useRouter();
 
 	return (
-		<motion.tr layoutId={`row-${proj.id}`} className={`text-sm bg-white} cursor-pointer hover:bg-gray-100`} onClick={() => {router.push({pathname: '/board', query: {id: proj.id}})}}>
+		<motion.tr layoutId={`row-${proj.id}`} className={`text-sm bg-white} cursor-pointer hover:bg-gray-100`} onClick={() => {router.push({pathname: '/board', query: {id: proj.id, name: proj.name, url: proj.url}})}}>
             <td className="pl-2"></td>
 			<td className='p-4 flex items-center gap-3 overflow-hidden'>
 				<div>

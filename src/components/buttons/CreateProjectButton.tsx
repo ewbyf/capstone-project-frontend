@@ -5,6 +5,7 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import api from '@/services/axiosConfig';
 import { useEffect, useState } from 'react';
+import { FaPlus } from 'react-icons/fa6';
 
 export function CreateProjectButton() {
 	const [repos, setRepos] = useState([]);
@@ -44,11 +45,17 @@ export function CreateProjectButton() {
 	return (
 		<Dialog open={open} onOpenChange={setOpen}>
 			<DialogTrigger asChild>
-				<Button>Create Project</Button>
+            <a
+	
+			className='justify-center bg-[#4F46E5] text-white font-bold text-md py-3 px-5 rounded-lg hover:cursor-pointer flex items-center gap-2 hover:bg-[#382EDD]'
+		>
+            <FaPlus />
+			<p>New Project</p>
+		</a>
 			</DialogTrigger>
 			<DialogContent className='sm:max-w-md bg-[#ffffff]'>
 				<DialogHeader>
-					<DialogTitle>Create Project</DialogTitle>
+					<DialogTitle>New Project</DialogTitle>
 					<DialogDescription>Get started by creating a name and selecting a repository for your new project!</DialogDescription>
 				</DialogHeader>
 				<form>

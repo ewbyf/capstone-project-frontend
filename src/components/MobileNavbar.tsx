@@ -1,6 +1,6 @@
 import { useMediaQuery } from 'usehooks-ts';
-import GetStartedButton2 from './GetStartedButton2';
-import LoginButton from './LoginButton';
+import GetStartedButton2 from './buttons/GetStartedButton2';
+import LoginButton from './buttons/LoginButton';
 import MobileNavbarDropdown from './MobileNavbarDropdown';
 
 const MobileNavbar = () => {

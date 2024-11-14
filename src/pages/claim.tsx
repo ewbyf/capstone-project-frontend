@@ -1,22 +1,18 @@
-import Loader from '@/components/Loader';
-import { useEffect } from 'react';
-import { useRouter } from 'next/router';
 import Loading from '@/components/Loading';
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 
 const Claim = () => {
-    const router = useRouter();
+	const router = useRouter();
 
-    useEffect(() => {
-        const arr = router.asPath.split('=')
-        if (arr.length == 2) {
-            localStorage.setItem('token', arr[1])
-        }
-        router.push('/projects')
-    }, [])
-  
-    return (
-        <Loading/>
-    );
-}
- 
+	useEffect(() => {
+		if (router.query.token && typeof router.query.token === "string") {
+			localStorage.setItem('token', router.query.token);
+			router.push('/projects');
+		}
+	}, []);
+
+	return <Loading />;
+};
+
 export default Claim;

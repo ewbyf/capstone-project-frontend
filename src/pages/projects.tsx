@@ -1,4 +1,4 @@
-import { CreateProjectButton } from '@/components/CreateProjectButton';
+import { CreateProjectButton } from '@/components/buttons/CreateProjectButton';
 import Loading from '@/components/Loading';
 import ProjectRow from '@/components/ProjectRow';
 import { Input } from '@/components/ui/input';
@@ -23,7 +23,6 @@ const Projects = () => {
 		}
 		api.get(`/projects?token=${token}`)
 			.then((resp) => {
-                console.log(resp.data)
 				setProjects(resp.data);
 				setFilteredProjects(resp.data);
 				setInit(false);

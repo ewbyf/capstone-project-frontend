@@ -1,7 +1,7 @@
 import AccordionSteps from '@/components/AccordionSteps';
 import FAQ from '@/components/FAQ';
 import { Footer } from '@/components/Footer';
-import GetStartedButton from '@/components/GetStartedButton';
+import GetStartedButton from '@/components/buttons/GetStartedButton';
 import MobileNavbar from '@/components/MobileNavbar';
 import Navbar from '@/components/Navbar';
 import { Testimonials } from '@/components/Testimonials';

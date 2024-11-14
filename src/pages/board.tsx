@@ -1,32 +1,48 @@
+import { CreateProjectButton } from '@/components/buttons/CreateProjectButton';
+import LogoutButton from '@/components/buttons/LogoutButon';
+import { BurnBarrel } from '@/components/kanban-board/BurnBarrel';
+import { Column } from '@/components/kanban-board/Column';
+import Logo from '@/components/Logo';
 import { CardType } from '@/interfaces/Kanban';
 import { ListItem } from '@/interfaces/ListItem';
 import api from '@/services/axiosConfig';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import { BurnBarrel } from '@/components/kanban-board/BurnBarrel';
-import { Column } from '@/components/kanban-board/Column';
 
 const Board = () => {
 	const [id, setId] = useState('');
 	const [items, setItems] = useState<ListItem[]>([]);
 	const [cards, setCards] = useState(DEFAULT_CARDS);
 	const router = useRouter();
-
 	useEffect(() => {
-		const arr = router.asPath.split('=');
-		setId(arr[1]);
-		api.get(`/projects/${arr[1]}/todos?token=${localStorage.getItem('token')}`)
-			.then((resp) => {
-				console.log(resp.data);
-			})
-			.catch((err) => {
-				console.log(err);
-			});
+		if (router.query.id && typeof router.query.id === 'string') {
+			setId(router.query.id);
+			api.get(`/projects/${router.query.id}/todos?token=${localStorage.getItem('token')}`)
+				.then((resp) => {
+					console.log(resp.data);
+				})
+				.catch((err) => {
+					console.log(err);
+				});
+		}
 	}, []);
 
 	return (
-		<div className='h-screen w-full bg-background text-neutral-50'>
-			<div className='flex h-full w-full gap-3 overflow-scroll p-12'>
+		<div className='flex flex-col h-full w-full'>
+			<div className='pattern-cross pattern-gray-500 pattern-bg-gray-300 pattern-size-8 pattern-opacity-10 h-full absolute w-full'></div>
+			<div className='bg-white w-full flex items-center shadow px-12 py-2 z-50 gap-12 z-[100]'>
+				<Logo />
+				<div className='flex ml-auto gap-4'>
+					<CreateProjectButton />
+					<LogoutButton />
+				</div>
+			</div>
+			{/* py-6 px-14 */}
+			<div className='w-full my-8'>
+				<p className='text-2xl font-bold'>{router.query.name}</p>
+				<p>{router.query.url}</p>
+			</div>
+			<div className='flex gap-3 flex-wrap'>
 				<Column title='Backlog' column='backlog' headingColor='text-neutral-500' cards={cards} setCards={setCards} />
 				<Column title='TODO' column='todo' headingColor='text-yellow-200' cards={cards} setCards={setCards} />
 				<Column title='In progress' column='doing' headingColor='text-blue-200' cards={cards} setCards={setCards} />
