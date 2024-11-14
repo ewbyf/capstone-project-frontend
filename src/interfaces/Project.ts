@@ -3,4 +3,6 @@ export interface Project {
     name: string;
     ownerId: string;
     url: string;
+    lastCommit: string;
+    lastCommitter: string;
 }

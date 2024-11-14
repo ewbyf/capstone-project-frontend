@@ -1,6 +1,7 @@
 import Loader from '@/components/Loader';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
+import Loading from '@/components/Loading';
 
 const Claim = () => {
     const router = useRouter();
@@ -14,9 +15,7 @@ const Claim = () => {
     }, [])
   
     return (
-        <div className='h-full w-full bg-background flex flex-col justify-center items-center gap-4'>
-            <Loader></Loader>
-        </div>
+        <Loading/>
     );
 }
  
