@@ -15,6 +15,9 @@ const Board = () => {
 	const [cards, setCards] = useState(DEFAULT_CARDS);
 	const router = useRouter();
 	useEffect(() => {
+		if (!router.isReady) {
+			return;
+		}
 		if (router.query.id && typeof router.query.id === 'string') {
 			setId(router.query.id);
 			api.get(`/projects/${router.query.id}/todos?token=${localStorage.getItem('token')}`)
@@ -25,28 +28,28 @@ const Board = () => {
 					console.log(err);
 				});
 		}
-	}, []);
+	}, [router.isReady]);
 
 	return (
-		<div className='flex flex-col h-full w-full'>
-			<div className='pattern-cross pattern-gray-500 pattern-bg-gray-300 pattern-size-8 pattern-opacity-10 h-full absolute w-full'></div>
-			<div className='bg-white w-full flex items-center shadow px-12 py-2 z-50 gap-12 z-[100]'>
+		<div className="flex flex-col h-full w-full">
+			<div className="pattern-cross pattern-gray-500 pattern-bg-gray-300 pattern-size-8 pattern-opacity-10 h-full absolute w-full"></div>
+			<div className="bg-white w-full flex items-center shadow px-12 py-2 z-50 gap-12 z-[100]">
 				<Logo />
-				<div className='flex ml-auto gap-4'>
+				<div className="flex ml-auto gap-4">
 					<CreateProjectButton />
 					<LogoutButton />
 				</div>
 			</div>
-			<div className='py-6 px-14 w-full h-full gap-8 flex flex-col'>
-				<div className='w-full'>
-					<p className='text-2xl font-bold'>{router.query.name}</p>
+			<div className="py-6 px-14 w-full h-full gap-8 flex flex-col">
+				<div className="w-full">
+					<p className="text-2xl font-bold">{router.query.name}</p>
 					<p>{router.query.url}</p>
 				</div>
-				<div className='flex gap-3 flex-wrap'>
-					<Column title='Backlog' column='backlog' headingColor='text-neutral-500' cards={cards} setCards={setCards} />
-					<Column title='TODO' column='todo' headingColor='text-yellow-200' cards={cards} setCards={setCards} />
-					<Column title='In progress' column='doing' headingColor='text-blue-200' cards={cards} setCards={setCards} />
-					<Column title='Complete' column='done' headingColor='text-emerald-200' cards={cards} setCards={setCards} />
+				<div className="flex gap-3 flex-wrap">
+					<Column title="Backlog" column="backlog" backgroundColor="hsl(210,60%,50%)" cards={cards} setCards={setCards} />
+					<Column title="TODO" column="todo" backgroundColor="hsl(23,100%,50%)" cards={cards} setCards={setCards} />
+					<Column title="In progress" column="doing" backgroundColor="hsl(210,60%,50%)" cards={cards} setCards={setCards} />
+					<Column title="Complete" column="done" backgroundColor="hsl(210,60%,50%)" cards={cards} setCards={setCards} />
 					<BurnBarrel setCards={setCards} />
 				</div>
 			</div>
@@ -64,7 +67,7 @@ const DEFAULT_CARDS: CardType[] = [
 	{
 		title: 'Research DB options for new microservice',
 		id: '5',
-		column: 'todo'
+		column: 'todo',
 	},
 	{ title: 'Postmortem for outage', id: '6', column: 'todo' },
 	{ title: 'Sync with product on Q3 roadmap', id: '7', column: 'todo' },
@@ -73,15 +76,15 @@ const DEFAULT_CARDS: CardType[] = [
 	{
 		title: 'Refactor context providers to use Zustand',
 		id: '8',
-		column: 'doing'
+		column: 'doing',
 	},
 	{ title: 'Add logging to daily CRON', id: '9', column: 'doing' },
 	// DONE
 	{
 		title: 'Set up DD dashboards for Lambda listener',
 		id: '10',
-		column: 'done'
-	}
+		column: 'done',
+	},
 ];
 
 export default Board;

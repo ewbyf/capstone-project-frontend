@@ -10,7 +10,7 @@ export type CardType = {
 
 export type ColumnProps = {
 	title: string;
-	headingColor: string;
+	backgroundColor: string;
 	cards: CardType[];
 	column: ColumnType;
 	setCards: Dispatch<SetStateAction<CardType[]>>;

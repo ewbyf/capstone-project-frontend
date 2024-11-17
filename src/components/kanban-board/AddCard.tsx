@@ -31,10 +31,10 @@ export const AddCard = ({ column, setCards }: AddCardProps) => {
 						onChange={(e) => setText(e.target.value)}
 						autoFocus
 						placeholder='Add new task...'
-						className='w-full rounded border border-violet-400 bg-violet-400/20 p-3 text-sm text-neutral-50 placeholder-violet-300 focus:outline-0'
+						className='w-full rounded border border-neutral-50 bg-neutral-50/20 p-3 text-sm text-white placeholder-gray-200 focus:outline-0'
 					/>
 					<div className='mt-1.5 flex items-center justify-end gap-1.5'>
-						<button onClick={() => setAdding(false)} className='px-3 py-1.5 text-xs text-neutral-400 transition-colors hover:text-neutral-50'>
+						<button onClick={() => setAdding(false)} className='px-3 py-1.5 text-xs text-white transition-colors hover:bg-gray-100/20 rounded'>
 							Close
 						</button>
 						<button
@@ -50,7 +50,7 @@ export const AddCard = ({ column, setCards }: AddCardProps) => {
 				<motion.button
 					layout
 					onClick={() => setAdding(true)}
-					className='flex w-full items-center gap-1.5 px-3 py-1.5 text-xs text-neutral-400 transition-colors hover:text-neutral-50'
+					className='flex w-full items-center justify-center gap-1.5 px-3 py-1.5 text-xs text-white transition-colors hover:bg-gray-100/20 rounded'
 				>
 					<span>Add card</span>
 					<FiPlus />

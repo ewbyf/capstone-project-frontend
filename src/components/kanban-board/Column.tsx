@@ -4,7 +4,7 @@ import { Card } from './Card';
 import { AddCard } from './AddCard';
 import { DropIndicator } from './DropIndicator';
 
-export const Column = ({ title, headingColor, cards, column, setCards }: ColumnProps) => {
+export const Column = ({ title, backgroundColor, cards, column, setCards }: ColumnProps) => {
 	const [active, setActive] = useState(false);
 
 	const handleDragStart = (e: DragEvent, card: CardType) => {
@@ -107,16 +107,16 @@ export const Column = ({ title, headingColor, cards, column, setCards }: ColumnP
 	const filteredCards = cards.filter((c) => c.column === column);
 
 	return (
-		<div className='w-56 shrink-0'>
-			<div className='mb-3 flex items-center justify-between'>
-				<h3 className={`font-medium ${headingColor}`}>{title}</h3>
+		<div className={`w-56 shrink-0 rounded-lg bg-[${backgroundColor}] flex flex-col`}>
+			<div className='flex items-center justify-between bg-black/30 p-4 rounded-t-md'>
+				<h3 className={`font-bold text-white`}>{title}</h3>
 				<span className='rounded text-sm text-neutral-400'>{filteredCards.length}</span>
 			</div>
 			<div
 				onDrop={handleDragEnd}
 				onDragOver={handleDragOver}
 				onDragLeave={handleDragLeave}
-				className={`h-full w-full transition-colors ${active ? 'bg-neutral-800/50' : 'bg-neutral-800/0'}`}
+				className={`h-full w-full p-4 transition-colors ${active ? 'bg-white/20' : 'bg-neutral-800/0'}`}
 			>
 				{filteredCards.map((c) => {
 					return <Card key={c.id} {...c} handleDragStart={handleDragStart} />;
