@@ -3,4 +3,7 @@ export interface ListItem {
 	message: string;
 	projectId: string;
 	type: string;
+    typeData: {
+        color: string;
+    };
 }

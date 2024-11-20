@@ -1,11 +1,13 @@
 import { Dispatch, SetStateAction } from 'react';
 
-export type ColumnType = 'backlog' | 'todo' | 'doing' | 'done';
+export type ColumnType = string;
 
 export type CardType = {
-	title: string;
+	completed: boolean;
 	id: string;
-	column: ColumnType;
+    message: string;
+    projectId: string;
+	type: ColumnType;
 };
 
 export type ColumnProps = {

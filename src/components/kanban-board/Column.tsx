@@ -1,5 +1,5 @@
 import { CardType, ColumnProps } from '@/interfaces/Kanban';
-import { DragEvent, useState } from 'react';
+import { DragEvent, useEffect, useState } from 'react';
 import { Card } from './Card';
 import { AddCard } from './AddCard';
 import { DropIndicator } from './DropIndicator';
@@ -27,7 +27,7 @@ export const Column = ({ title, backgroundColor, cards, column, setCards }: Colu
 
 			let cardToTransfer = copy.find((c) => c.id === cardId);
 			if (!cardToTransfer) return;
-			cardToTransfer = { ...cardToTransfer, column };
+			cardToTransfer = { ...cardToTransfer, type: column };
 
 			copy = copy.filter((c) => c.id !== cardId);
 
@@ -104,10 +104,10 @@ export const Column = ({ title, backgroundColor, cards, column, setCards }: Colu
 		setActive(false);
 	};
 
-	const filteredCards = cards.filter((c) => c.column === column);
+	const filteredCards = cards.filter((c) => c.type === column);
 
 	return (
-		<div className={`w-56 shrink-0 rounded-lg bg-[${backgroundColor}] flex flex-col`}>
+		<div className={`w-56 shrink-0 rounded-lg flex flex-col`} style={{backgroundColor}}>
 			<div className='flex items-center justify-between bg-black/30 p-4 rounded-t-md'>
 				<h3 className={`font-bold text-white`}>{title}</h3>
 				<span className='rounded text-sm text-neutral-400'>{filteredCards.length}</span>
