@@ -5,7 +5,7 @@ import Logo from './Logo';
 const Navbar = () => {
 	return (
 		<nav className='bg-white w-full flex items-center fixed top-0 shadow px-12 py-2 z-50 gap-12 z-[100]'>
-			<Logo/>
+			<Logo dest="#"/>
 			<a href='#' className='font-inter font-[500] hover:text-[#4F46E5]'>
 				Try it
 			</a>

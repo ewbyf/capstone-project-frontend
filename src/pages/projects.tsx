@@ -1,5 +1,6 @@
 import { CreateProjectButton } from '@/components/buttons/CreateProjectButton';
 import Loading from '@/components/Loading';
+import Logo from '@/components/Logo';
 import ProjectRow from '@/components/ProjectRow';
 import { Input } from '@/components/ui/input';
 import { Project } from '@/interfaces/Project';
@@ -35,9 +36,13 @@ const Projects = () => {
 	}
 
 	return (
-		<div className='h-full w-full flex flex-col items-center bg-[#EEF2FF] px-4 py-16'>
-			<div className='h-full w-full flex flex-col items-center gap-4 bg-[#EEF2FF] max-w-[75em]'>
-				<div className='flex justify-between w-full mb-8'>
+		<div className='h-full w-full flex flex-col items-center bg-[#EEF2FF]'>
+			<div className='pattern-cross pattern-gray-500 pattern-bg-gray-300 pattern-size-8 pattern-opacity-10 h-full absolute w-full'></div>
+            <div className='w-full flex items-center px-12 py-2 z-50 gap-12 z-[100]'>
+				<Logo dest="/projects"/>
+			</div>
+			<div className='h-full w-full flex flex-col items-center gap-4 max-w-[75em] px-4 pb-16'>
+				<div className='flex justify-between w-full mb-4'>
 					<p className='text-3xl font-bold'>All Projects</p>
 				</div>
 				<div className='flex justify-between w-full gap-8'>

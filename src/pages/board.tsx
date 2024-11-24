@@ -1,3 +1,4 @@
+import { AddColumnButton } from '@/components/buttons/AddColumnButton';
 import { CreateProjectButton } from '@/components/buttons/CreateProjectButton';
 import LogoutButton from '@/components/buttons/LogoutButon';
 import { BurnBarrel } from '@/components/kanban-board/BurnBarrel';
@@ -42,9 +43,9 @@ const Board = () => {
 		<div className='flex flex-col h-full w-full'>
 			<div className='pattern-cross pattern-gray-500 pattern-bg-gray-300 pattern-size-8 pattern-opacity-10 h-full absolute w-full'></div>
 			<div className='bg-white w-full flex items-center shadow px-12 py-2 z-50 gap-12 z-[100]'>
-				<Logo />
+				<Logo dest="/projects"/>
 				<div className='flex ml-auto gap-4'>
-					<CreateProjectButton />
+                    <AddColumnButton setColumns={setColumns}/>
 					<LogoutButton />
 				</div>
 			</div>
