@@ -1,7 +1,5 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { IntegrationsBlock } from "./IntegrationsBlock";
-import { CollaborateBlock } from "./CollaborateBlock";
 import { HighlighBlocks } from "./HighlighBlocks";
 export const BenefitsGrid = () => {
   return (

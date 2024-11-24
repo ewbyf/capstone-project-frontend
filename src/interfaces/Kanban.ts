@@ -8,6 +8,7 @@ export type CardType = {
     message: string;
     projectId: string;
 	type: ColumnType;
+    setCards: Dispatch<SetStateAction<CardType[]>>;
 };
 
 export type ColumnProps = {
@@ -16,6 +17,7 @@ export type ColumnProps = {
 	cards: CardType[];
 	column: ColumnType;
 	setCards: Dispatch<SetStateAction<CardType[]>>;
+    id: string;
 };
 
 export type CardProps = CardType & {
@@ -30,4 +32,5 @@ export type DropIndicatorProps = {
 export type AddCardProps = {
     column: ColumnType;
     setCards: Dispatch<SetStateAction<CardType[]>>;
+    id: string;
   };

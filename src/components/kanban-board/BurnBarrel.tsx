@@ -1,4 +1,5 @@
 import { CardType } from '@/interfaces/Kanban';
+import api from '@/services/axiosConfig';
 import { Dispatch, DragEvent, SetStateAction, useState } from 'react';
 import { FaFire } from 'react-icons/fa';
 import { FiTrash } from 'react-icons/fi';
@@ -16,9 +17,18 @@ export const BurnBarrel = ({ setCards }: { setCards: Dispatch<SetStateAction<Car
 	};
 
 	const handleDragEnd = (e: DragEvent) => {
-		const cardId = e.dataTransfer.getData('cardId');
+		const id = e.dataTransfer.getData('cardId');
+        const projectId = e.dataTransfer.getData('projectId');
 
-		setCards((pv) => pv.filter((c) => c.id !== cardId));
+
+        setCards((pv) => pv.filter((c) => c.id !== id));
+        api.delete(`/projects/${projectId}/todos/${id}?token=${localStorage.getItem('token')}`)
+        .then((resp) => {
+            console.log(resp.data)
+        })
+        .catch((err) => {
+            console.log(err);
+        })
 
 		setActive(false);
 	};

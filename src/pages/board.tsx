@@ -65,10 +65,11 @@ const Board = () => {
 								}%)`}
 								cards={items}
 								setCards={setItems}
+                                id={id}
 							/>
                     ))}
-					<Column title='In progress' column='doing' backgroundColor='hsl(210,60%,50%)' cards={items} setCards={setItems} />
-					<Column title='Complete' column='done' backgroundColor='hsl(210,60%,50%)' cards={items} setCards={setItems} />
+					{/* <Column title='In progress' column='doing' backgroundColor='hsl(210,60%,50%)' cards={items} setCards={setItems} />
+					<Column title='Complete' column='done' backgroundColor='hsl(210,60%,50%)' cards={items} setCards={setItems} /> */}
 					<BurnBarrel setCards={setItems} />
 				</div>
 			</div>

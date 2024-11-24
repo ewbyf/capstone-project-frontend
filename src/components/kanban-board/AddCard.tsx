@@ -1,9 +1,10 @@
+import { AddCardProps } from '@/interfaces/Kanban';
+import api from '@/services/axiosConfig';
 import { motion } from 'framer-motion';
 import { FormEvent, useState } from 'react';
 import { FiPlus } from 'react-icons/fi';
-import { AddCardProps } from '@/interfaces/Kanban';
 
-export const AddCard = ({ column, setCards }: AddCardProps) => {
+export const AddCard = ({ column, setCards, id }: AddCardProps) => {
 	const [text, setText] = useState('');
 	const [adding, setAdding] = useState(false);
 
@@ -13,12 +14,21 @@ export const AddCard = ({ column, setCards }: AddCardProps) => {
 		if (!text.trim().length) return;
 
 		const newCard = {
-			column,
-			title: text.trim(),
-			id: Math.random().toString()
+			type: column,
+			message: text.trim(),
+			completed: false,
+			projectId: id
 		};
 
-		setCards((pv) => [...pv, newCard]);
+		// setCards((pv) => [...pv, newCard]);
+
+		api.post(`/projects/${id}/todos/new?token=${localStorage.getItem('token')}`, newCard)
+			.then((resp) => {
+				console.log(resp);
+			})
+			.catch((err) => {
+				console.log(err);
+			});
 
 		setAdding(false);
 	};

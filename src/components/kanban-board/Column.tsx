@@ -3,12 +3,14 @@ import { DragEvent, useEffect, useState } from 'react';
 import { Card } from './Card';
 import { AddCard } from './AddCard';
 import { DropIndicator } from './DropIndicator';
+import api from '@/services/axiosConfig';
 
-export const Column = ({ title, backgroundColor, cards, column, setCards }: ColumnProps) => {
+export const Column = ({ title, backgroundColor, cards, column, setCards, id }: ColumnProps) => {
 	const [active, setActive] = useState(false);
 
 	const handleDragStart = (e: DragEvent, card: CardType) => {
 		e.dataTransfer.setData('cardId', card.id);
+		e.dataTransfer.setData('projectId', id);
 	};
 
 	const handleDragEnd = (e: DragEvent) => {
@@ -41,6 +43,17 @@ export const Column = ({ title, backgroundColor, cards, column, setCards }: Colu
 
 				copy.splice(insertAtIndex, 0, cardToTransfer);
 			}
+
+            api.post(`/projects/${cardToTransfer.projectId}/todos/${cardToTransfer.id}/edit?token=${localStorage.getItem('token')}`, {
+                message: cardToTransfer.message,
+                type: column
+            })
+            .then((resp) => {
+                console.log(resp.data)
+            })
+            .catch((err) => {
+                console.log(err)
+            })
 
 			setCards(copy);
 		}
@@ -119,10 +132,10 @@ export const Column = ({ title, backgroundColor, cards, column, setCards }: Colu
 				className={`h-full w-full p-4 transition-colors ${active ? 'bg-white/20' : 'bg-neutral-800/0'}`}
 			>
 				{filteredCards.map((c) => {
-					return <Card key={c.id} {...c} handleDragStart={handleDragStart} />;
+					return <Card key={c.id} {...c} setCards={setCards} handleDragStart={handleDragStart} />;
 				})}
 				<DropIndicator beforeId={null} column={column} />
-				<AddCard column={column} setCards={setCards} />
+				<AddCard column={column} setCards={setCards} id={id}/>
 			</div>
 		</div>
 	);
