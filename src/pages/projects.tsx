@@ -38,7 +38,7 @@ const Projects = () => {
 	return (
 		<div className='h-full w-full flex flex-col items-center bg-[#EEF2FF]'>
 			<div className='pattern-cross pattern-gray-500 pattern-bg-gray-300 pattern-size-8 pattern-opacity-10 h-full absolute w-full'></div>
-            <div className='w-full flex items-center px-12 py-2 z-50 gap-12 z-[100]'>
+            <div className='w-full flex items-center px-12 py-2 z-50 gap-12 z-[49]'>
 				<Logo dest="/projects"/>
 			</div>
 			<div className='h-full w-full flex flex-col items-center gap-4 max-w-[75em] px-4 pb-16'>

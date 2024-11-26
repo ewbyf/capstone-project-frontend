@@ -1,3 +1,4 @@
+import { AddCardButton } from '@/components/buttons/AddCardButton';
 import { AddColumnButton } from '@/components/buttons/AddColumnButton';
 import { CreateProjectButton } from '@/components/buttons/CreateProjectButton';
 import LogoutButton from '@/components/buttons/LogoutButon';
@@ -42,9 +43,10 @@ const Board = () => {
 	return (
 		<div className='flex flex-col h-full w-full'>
 			<div className='pattern-cross pattern-gray-500 pattern-bg-gray-300 pattern-size-8 pattern-opacity-10 h-full absolute w-full'></div>
-			<div className='bg-white w-full flex items-center shadow px-12 py-2 z-50 gap-12 z-[100]'>
+			<div className='bg-white w-full flex items-center shadow px-12 py-2 z-50 gap-12 z-[49]'>
 				<Logo dest="/projects"/>
 				<div className='flex ml-auto gap-4'>
+                    <AddCardButton setItems={setItems} projectId={id} columns={columns} />
                     <AddColumnButton setColumns={setColumns}/>
 					<LogoutButton />
 				</div>
@@ -67,6 +69,7 @@ const Board = () => {
 								cards={items}
 								setCards={setItems}
                                 id={id}
+                                key={col.name}
 							/>
                     ))}
 					{/* <Column title='In progress' column='doing' backgroundColor='hsl(210,60%,50%)' cards={items} setCards={setItems} />
