@@ -10,8 +10,9 @@ import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Label } from './ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
+import { useToast } from '@/hooks/use-toast';
 
-function Tree({ setItems, projectId, columns }: { setItems: React.Dispatch<SetStateAction<[]>>; projectId: string, columns: any }) {
+function Tree({ setItems, projectId, columns, setOpen }: { setItems: React.Dispatch<SetStateAction<[]>>; projectId: string, columns: any, setOpen: React.Dispatch<SetStateAction<boolean>> }) {
 	const [directory, setDirectory] = useState();
 	const [init, setInit] = useState(true);
 	const [language, setLanguage] = useState('javascript');
@@ -20,6 +21,7 @@ function Tree({ setItems, projectId, columns }: { setItems: React.Dispatch<SetSt
 	const [comment, setComment] = useState('');
 	const [lineNumber, setLineNumber] = useState('0');
     const [selectedColumn, setSelectedColumn] = useState('')
+    const { toast } = useToast()
 
 	useEffect(() => {
 		api.get(`/projects/${projectId}/tree?token=${localStorage.getItem('token')}`)
@@ -77,13 +79,18 @@ function Tree({ setItems, projectId, columns }: { setItems: React.Dispatch<SetSt
 
 	const addCard = () => {
 		api.post(`/projects/${projectId}/todos/new?token=${localStorage.getItem('token')}`, {
-			ln: lineNumber,
+			ln: (parseInt(lineNumber) - 1).toString(),
 			message: comment,
 			file: selectedPath,
 			type: selectedColumn
 		})
 			.then((resp) => {
 				setItems(resp.data);
+                setOpen(false)
+                toast({
+                    title: "Success!",
+                    description: `Task was successfully created!`,
+                  })
 			})
 			.catch((err) => {
 				console.log(err);
@@ -125,7 +132,7 @@ function Tree({ setItems, projectId, columns }: { setItems: React.Dispatch<SetSt
 					defaultValue='// Add a new card by selecting a file, inputting the line number, and a message!'
 					value={code}
 					language={language}
-					options={{ minimap: { enabled: false }, quickSuggestions: false, domReadOnly: true }}
+					options={{ minimap: { enabled: false }, quickSuggestions: false, domReadOnly: true, readOnly: true }}
 				/>
 			</div>
 			<div className='h-[10vh] flex mx-8 w-full items-center gap-4'>
@@ -162,8 +169,8 @@ function Tree({ setItems, projectId, columns }: { setItems: React.Dispatch<SetSt
 						id='name'
 						type='number'
 						className='border'
-						min='0'
-						placeholder='0'
+						min='1'
+						placeholder='1'
 						value={lineNumber}
 						onChange={(e) => setLineNumber(e.target.value)}
 					/>
@@ -178,7 +185,7 @@ function Tree({ setItems, projectId, columns }: { setItems: React.Dispatch<SetSt
 					<div className='flex flex-col space-y-1.5'>
 						<Label htmlFor='name'>&nbsp;</Label>
 						<Button className='justify-end' onClick={addCard} disabled={selectedPath === '' || selectedColumn === ''}>
-							Add Card
+							Add Task
 						</Button>
 					</div>
 				</div>

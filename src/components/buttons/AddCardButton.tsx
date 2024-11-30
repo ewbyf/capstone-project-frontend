@@ -16,12 +16,12 @@ export function AddCardButton({ setItems, projectId, columns }: { setItems: Reac
 			<DialogTrigger asChild>
 				<a className='justify-center bg-[#4F46E5] text-white font-bold text-md py-3 px-5 rounded-lg hover:cursor-pointer flex items-center gap-2 hover:bg-[#382EDD]'>
 					<FaPlus />
-					<p>Add Card</p>
+					<p>Add Task</p>
 				</a>
 			</DialogTrigger>
 			<DialogContent className='w-[95vw] max-w-[100vw] flex bg-[#ffffff] p-0'>
                 <DialogTitle hidden={true}></DialogTitle>
-                <Tree setItems={setItems} projectId={projectId} columns={columns}></Tree>
+                <Tree setItems={setItems} projectId={projectId} columns={columns} setOpen={setOpen}></Tree>
 			</DialogContent>
 		</Dialog>
 	);

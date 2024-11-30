@@ -5,10 +5,12 @@ export type ColumnType = string;
 export type CardType = {
 	completed: boolean;
 	id: string;
-    message: string;
-    projectId: string;
+	message: string;
+	projectId: string;
 	type: ColumnType;
-    setCards: Dispatch<SetStateAction<CardType[]>>;
+	setCards: Dispatch<SetStateAction<CardType[]>>;
+	collaborators: CollaboratorProps[];
+	assignees: IncomingCollaboratorProps[];
 };
 
 export type ColumnProps = {
@@ -17,8 +19,23 @@ export type ColumnProps = {
 	cards: CardType[];
 	column: ColumnType;
 	setCards: Dispatch<SetStateAction<CardType[]>>;
-    id: string;
+	id: string;
+	setColumns: Dispatch<SetStateAction<CardType[]>>;
+	collaborators: CollaboratorProps[];
 };
+
+export type CollaboratorProps = {
+	avatar: string;
+	color: string;
+	id: string;
+	name: string;
+};
+
+export type IncomingCollaboratorProps = {
+    color: string;
+	id: string;
+	name: string;
+}
 
 export type CardProps = CardType & {
 	handleDragStart: Function;
@@ -30,7 +47,7 @@ export type DropIndicatorProps = {
 };
 
 export type AddCardProps = {
-    column: ColumnType;
-    setCards: Dispatch<SetStateAction<CardType[]>>;
-    id: string;
-  };
+	column: ColumnType;
+	setCards: Dispatch<SetStateAction<CardType[]>>;
+	id: string;
+};

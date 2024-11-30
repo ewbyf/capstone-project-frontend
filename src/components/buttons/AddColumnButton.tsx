@@ -6,13 +6,29 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import api from '@/services/axiosConfig';
 import { SetStateAction, useEffect, useState } from 'react';
 import { FaPlus } from 'react-icons/fa6';
+import { useToast } from '@/hooks/use-toast';
 
-export function AddColumnButton({ setColumns }: { setColumns: React.Dispatch<SetStateAction<[]>> }) {
+export function AddColumnButton({ setColumns, projectId }: { setColumns: React.Dispatch<SetStateAction<[]>>, projectId: string }) {
 	const [name, setName] = useState('');
 	const [open, setOpen] = useState(false);
+    const { toast } = useToast()
 
 	const createColumn = () => {
-        
+        api.post(`/projects/${projectId}/types/new?token=${localStorage.getItem('token')}`, {
+            name
+        })
+        .then((resp) => {
+            setColumns(resp.data)
+            setOpen(false);
+            setName('');
+            toast({
+                title: "Success!",
+                description: `'${name}' column was successfully created!`,
+              })
+        })
+        .catch((err) => {
+            console.log(err)
+        })
 	};
 
 	return (
@@ -28,14 +44,14 @@ export function AddColumnButton({ setColumns }: { setColumns: React.Dispatch<Set
 					<DialogTitle>Add Column</DialogTitle>
 					<DialogDescription>Create a new column for your kanban board!</DialogDescription>
 				</DialogHeader>
-				<form>
+				<div>
 					<div className='grid w-full items-center gap-4'>
 						<div className='flex flex-col space-y-1.5'>
 							<Label htmlFor='name'>Name</Label>
-							<Input id='name' placeholder='Name of your column' value={name} onChange={(e) => setName(e.target.value)} />
+							<Input id='name' placeholder='Name of your column' maxLength={24} value={name} onChange={(e) => setName(e.target.value)} />
 						</div>
 					</div>
-				</form>
+				</div>
 				<DialogFooter>
 					<Button className='w-full' onClick={createColumn}>
 						Create Column

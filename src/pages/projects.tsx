@@ -24,6 +24,7 @@ const Projects = () => {
 		}
 		api.get(`/projects?token=${token}`)
 			.then((resp) => {
+                console.log(resp.data)
 				setProjects(resp.data);
 				setFilteredProjects(resp.data);
 				setInit(false);
@@ -38,8 +39,8 @@ const Projects = () => {
 	return (
 		<div className='h-full w-full flex flex-col items-center bg-[#EEF2FF]'>
 			<div className='pattern-cross pattern-gray-500 pattern-bg-gray-300 pattern-size-8 pattern-opacity-10 h-full absolute w-full'></div>
-            <div className='w-full flex items-center px-12 py-2 z-50 gap-12 z-[49]'>
-				<Logo dest="/projects"/>
+			<div className='w-full flex items-center px-12 py-2 z-50 gap-12 z-[49]'>
+				<Logo dest='/projects' />
 			</div>
 			<div className='h-full w-full flex flex-col items-center gap-4 max-w-[75em] px-4 pb-16'>
 				<div className='flex justify-between w-full mb-4'>
@@ -58,7 +59,7 @@ const Projects = () => {
 							}}
 						></Input>
 					</div>
-					<CreateProjectButton></CreateProjectButton>
+					<CreateProjectButton setFilteredProjects={setFilteredProjects} setProjects={setProjects} projects={projects} searchValue={searchValue}></CreateProjectButton>
 				</div>
 				<div className='w-full bg-white shadow-lg rounded-lg'>
 					<table className='w-full'>
@@ -71,14 +72,15 @@ const Projects = () => {
 						</thead>
 
 						<tbody>
-							{filteredProjects.map((proj, index) => {
-								return <ProjectRow key={proj.name} proj={proj} />;
-							})}
+							{filteredProjects.length > 0 &&
+								filteredProjects.map((proj, index) => {
+									return <ProjectRow key={proj.name} proj={proj} />;
+								})}
 							{filteredProjects.length == 0 && (
 								<motion.tr layoutId={`row`} className={`text-sm bg-white}`}>
 									<td className='pl-2'></td>
-									<td className='p-4 flex items-center gap-3 justify-center' colSpan={3}>
-										<p className='block mb-1 font-medium text-center'>No projects found</p>
+									<td className='p-4 flex items-center gap-3 overflow-hidden'>
+										<a className='block mb-1 font-medium ml-auto'>No projects found</a>
 									</td>
 								</motion.tr>
 							)}

@@ -1,12 +1,15 @@
+import { ContextMenu, ContextMenuContent, ContextMenuItem, ContextMenuTrigger } from '@/components/ui/context-menu';
 import { CardType, ColumnProps } from '@/interfaces/Kanban';
-import { DragEvent, useEffect, useState } from 'react';
-import { Card } from './Card';
-import { AddCard } from './AddCard';
-import { DropIndicator } from './DropIndicator';
 import api from '@/services/axiosConfig';
+import { DragEvent, useState } from 'react';
+import { FiTrash } from 'react-icons/fi';
+import { Card } from './Card';
+import { DropIndicator } from './DropIndicator';
+import { useToast } from '@/hooks/use-toast';
 
-export const Column = ({ title, backgroundColor, cards, column, setCards, id }: ColumnProps) => {
+export const Column = ({ title, backgroundColor, cards, column, setCards, id, setColumns, collaborators }: ColumnProps) => {
 	const [active, setActive] = useState(false);
+    const { toast } = useToast()
 
 	const handleDragStart = (e: DragEvent, card: CardType) => {
 		e.dataTransfer.setData('cardId', card.id);
@@ -43,17 +46,18 @@ export const Column = ({ title, backgroundColor, cards, column, setCards, id }: 
 
 				copy.splice(insertAtIndex, 0, cardToTransfer);
 			}
-
-            api.post(`/projects/${cardToTransfer.projectId}/todos/${cardToTransfer.id}/edit?token=${localStorage.getItem('token')}`, {
-                message: cardToTransfer.message,
-                type: column
-            })
-            .then((resp) => {
-                console.log(resp.data)
-            })
-            .catch((err) => {
-                console.log(err)
-            })
+            console.log(cardToTransfer.message)
+            console.log(column)
+			api.post(`/projects/${cardToTransfer.projectId}/todos/${cardToTransfer.id}/edit?token=${localStorage.getItem('token')}`, {
+				message: cardToTransfer.message,
+				type: column
+			})
+				.then((resp) => {
+					console.log(resp.data);
+				})
+				.catch((err) => {
+					console.log(err);
+				});
 
 			setCards(copy);
 		}
@@ -119,24 +123,51 @@ export const Column = ({ title, backgroundColor, cards, column, setCards, id }: 
 
 	const filteredCards = cards.filter((c) => c.type === column);
 
+	const deleteColumn = () => {
+        api.delete(`/projects/${id}/types/${title}?token=${localStorage.getItem('token')}`)
+        .then((resp) => {
+            setColumns(resp.data)
+            toast({
+                title: "Success!",
+                description: `'${title}' column was successfully deleted!`,
+              })
+        })
+        .catch((err) => {
+            toast({
+                variant: 'destructive',
+                title: "Uh oh! Something went wrong.",
+                description: "Make sure to delete all cards inside the column before deleting the column!",
+              })
+        })
+    };
+
 	return (
-		<div className={`w-56 shrink-0 rounded-lg flex flex-col`} style={{backgroundColor}}>
-			<div className='flex items-center justify-between bg-black/30 p-4 rounded-t-md'>
-				<h3 className={`font-bold text-white`}>{title}</h3>
-				<span className='rounded text-sm text-neutral-400'>{filteredCards.length}</span>
-			</div>
-			<div
-				onDrop={handleDragEnd}
-				onDragOver={handleDragOver}
-				onDragLeave={handleDragLeave}
-				className={`h-full w-full p-4 transition-colors ${active ? 'bg-white/20' : 'bg-neutral-800/0'}`}
-			>
-				{filteredCards.map((c) => {
-					return <Card key={c.id} {...c} setCards={setCards} handleDragStart={handleDragStart} />;
-				})}
-				<DropIndicator beforeId={null} column={column} />
-				<AddCard column={column} setCards={setCards} id={id}/>
-			</div>
-		</div>
+		<ContextMenu>
+			<ContextMenuTrigger>
+				<div className={`w-56 shrink-0 rounded-lg flex flex-col`} style={{ backgroundColor }}>
+					<div className='flex items-center justify-between bg-black/30 p-4 rounded-t-md'>
+						<h3 className={`font-bold text-white`}>{title}</h3>
+						<span className='rounded text-sm text-neutral-100'>{filteredCards.length}</span>
+					</div>
+					<div
+						onDrop={handleDragEnd}
+						onDragOver={handleDragOver}
+						onDragLeave={handleDragLeave}
+						className={`h-full w-full p-4 transition-colors ${active ? 'bg-white/20' : 'bg-neutral-800/0'}`}
+					>
+						{filteredCards.map((c) => {
+							return <Card key={c.id} {...c} setCards={setCards} collaborators={collaborators} handleDragStart={handleDragStart} />;
+						})}
+						<DropIndicator beforeId={null} column={column} />
+					</div>
+				</div>
+			</ContextMenuTrigger>
+			<ContextMenuContent className='w-48'>
+				<ContextMenuItem onClick={deleteColumn} className='cursor-pointer'>
+					<FiTrash className='mr-[10px]'></FiTrash>
+					Delete
+				</ContextMenuItem>
+			</ContextMenuContent>
+		</ContextMenu>
 	);
 };

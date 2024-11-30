@@ -4,10 +4,11 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import api from '@/services/axiosConfig';
-import { useEffect, useState } from 'react';
+import { SetStateAction, useEffect, useState } from 'react';
 import { FaPlus } from 'react-icons/fa6';
+import { Project } from '@/interfaces/Project';
 
-export function CreateProjectButton() {
+export function CreateProjectButton({ setFilteredProjects, setProjects, projects, searchValue } : {setFilteredProjects: React.Dispatch<SetStateAction<Project[]>>, setProjects: React.Dispatch<SetStateAction<Project[]>>, projects: Project[], searchValue: string}) {
 	const [repos, setRepos] = useState([]);
 	const [name, setName] = useState('');
 	const [selectedRepo, setSelectedRepo] = useState('');
@@ -25,14 +26,15 @@ export function CreateProjectButton() {
 	}, []);
 
     const createProject = () => {
-        console.log(name)
-        console.log(selectedRepo)
         api.post(`/projects/new?token=${localStorage.getItem('token')}`, {
             name,
             url: selectedRepo
         })
         .then((resp) => {
             console.log(resp.data)
+            const temp = [...projects, resp.data]
+            setProjects(temp)
+            setFilteredProjects(temp.filter((proj) => proj.name.startsWith(searchValue)));
             setName('')
             setSelectedRepo('')
             setOpen(false)
